@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carpark_no: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  carpark_type: MyString
+  parking_system_type: MyString
+  short_term_parking: MyString
+  free_parking: MyString
+  night_parking: false
+  carpark_decks: 1
+  grantry_height: 1.5
+  basement_parking: false
+
+two:
+  carpark_no: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  carpark_type: MyString
+  parking_system_type: MyString
+  short_term_parking: MyString
+  free_parking: MyString
+  night_parking: false
+  carpark_decks: 1
+  grantry_height: 1.5
+  basement_parking: false

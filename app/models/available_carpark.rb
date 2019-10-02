@@ -1,0 +1,2 @@
+class AvailableCarpark < ApplicationRecord
+end
