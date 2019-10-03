@@ -39,9 +39,15 @@ namespace :dump do
 		 	available_carparks.each do |carpark|
 		 		carpark_number = carpark["carpark_number"]
 		 		update_datetime = carpark["update_datetime"]
-		 		carpark_info = carpark["carpark_info"].to_json
+		 		carpark_info = carpark["carpark_info"][0]
+        total_lots = carpark_info["total_lots"]
+        lot_type = carpark_info["lot_type"]
+        lots_available = carpark_info["lots_available"]
 		 		available_carpark = AvailableCarpark.find_or_create_by(carpark_no: carpark_number)
 		 		available_carpark.carpark_info = carpark_info
+        available_carpark.total_lots = total_lots
+        available_carpark.lot_type  = lot_type
+        available_carpark.lots_available  = lots_available
 		 		available_carpark.update_datetime = update_datetime
 		 		available_carpark.save!
 		 		puts "#{count+=1} records inserted"
