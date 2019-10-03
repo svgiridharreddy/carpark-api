@@ -22,6 +22,7 @@ gem "pg"
 gem "svy21", "~> 1.0.1"
 # httparty which can be used to query web services and examine the resulting output
 gem 'httparty'
+gem 'geocoder'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

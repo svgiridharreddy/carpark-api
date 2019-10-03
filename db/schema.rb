@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_191116) do
+ActiveRecord::Schema.define(version: 2019_10_03_161519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2019_10_02_191116) do
     t.text "carpark_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "total_lots"
+    t.string "lot_type"
+    t.string "lots_available"
   end
 
   create_table "carpark_infos", force: :cascade do |t|
