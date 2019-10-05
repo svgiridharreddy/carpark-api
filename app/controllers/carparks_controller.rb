@@ -1,9 +1,12 @@
 class CarparksController < ApplicationController
 
-	def nearest_carparks
-		if params.has_key?("latitude") && params.has_key?("longitude")
-			latitude = params[:latitude]
+
+	def get_nearest_carparks
+		 return head(:bad_request) unless valid_request?
+			latitude = params[:latitude] 
 			longitude = params[:longitude]
+			page = params[:page]
+			per_page = params[:per_page]
 			carparks = CarparkInfo.near([latitude,longitude],5,units: :km)
 			nearest_carparks = []
 			carparks.each do |c|
@@ -22,13 +25,15 @@ class CarparksController < ApplicationController
 					nearest_carparks = nearest_carparks.sort_by{|nc| [nc["available_lots"],nc["total_lots"]]}
 				end
 			end
-			  render json: nearest_carparks
-		else
-			render json: {status: 400}
-		end
+			nearest_carparks  = nearest_carparks.paginate(page: params[:page], per_page: params[:per_page])
+		  json_response(nearest_carparks)
 	end
 
 	private 
+
+	def valid_request?
+		params.has_key?("latitude") && params.has_key?("longitude")
+	end
 
 	def carpark_params
 		params.require(:carkpark).premit(:carpark_no,:latitude,:longitude,:carpark_type,:parking_system_type,:short_term_parking,:free_parking,:night_parking,:carpark_decks,:grantry_height,:basement_parking)

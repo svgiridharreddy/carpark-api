@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_10_03_161519) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "available_carparks", force: :cascade do |t|
+  create_table "available_carparks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "carpark_no"
     t.string "update_datetime"
     t.text "carpark_info"
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_161519) do
     t.string "lots_available"
   end
 
-  create_table "carpark_infos", force: :cascade do |t|
+  create_table "carpark_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "carpark_no"
     t.string "address"
     t.float "latitude"
